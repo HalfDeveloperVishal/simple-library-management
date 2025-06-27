@@ -30,3 +30,5 @@ FunBookstore is a web-based book listing platform built using Django. It allows 
 - **Frontend**: HTML, CSS, Bootstrap 5
 - **Database**: SQLite (default)
 - **Template Engine**: Django Templates
+
+  <pre> ``` project-name/ │ ├── books/ │ ├── templates/ │ │ ├── accounts/ │ │ │ ├── login.html │ │ │ └── register.html │ │ ├── books/ │ │ │ ├── add_books.html │ │ │ ├── book_list.html │ │ │ ├── edit_book.html │ │ │ └── my_books.html │ │ └── homepage/ │ │ └── homepage.html │ ├── admin.py │ ├── apps.py │ ├── forms.py │ ├── models.py │ ├── urls.py │ └── views.py │ ├── funbookstore/ │ ├── __init__.py │ ├── settings.py │ ├── urls.py │ ├── wsgi.py │ └── asgi.py │ ├── templates/ │ └── base.html │ ├── media/ ├── db.sqlite3 ├── manage.py └── requirements.txt ``` </pre>
