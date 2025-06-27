@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Books - FunBookstore</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+
+  <!-- Title & Buttons -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h3 class="mb-0">All Listed Books</h3>
+    
+    {% if user.is_authenticated %}
+    <div class="d-flex gap-2">
+      <a href="{% url 'add_book' %}" class="btn btn-success">+ Add Book</a>
+      <a href="{% url 'my_books' %}" class="btn btn-outline-secondary">Your Books</a>
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- Book Grid -->
+  {% if books %}
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    {% for book in books %}
+    <div class="col">
+      <div class="card h-100 shadow-sm rounded-4 overflow-hidden">
+
+        {% if book.cover_image %}
+          <img src="{{ book.cover_image.url }}" class="card-img-top" style="height: 250px; object-fit: fill;" alt="{{ book.title }}">
+        {% else %}
+          <div class="bg-secondary text-white d-flex align-items-center justify-content-center" style="height: 250px;">
+            <span>No Image</span>
+          </div>
+        {% endif %}
+
+        <div class="card-body">
+          <h5 class="card-title fw-bold">{{ book.title }}</h5>
+          <p class="text-muted mb-1">by {{ book.author }}</p>
+          <span class="badge bg-light text-dark border rounded-pill px-3">{{ book.genre }}</span>
+
+          <p class="mt-2 mb-1">
+            <small class="text-muted">Published: {{ book.publish_date }}</small><br>
+            <small class="text-muted">Listed by: {{ book.listed_by.username }}</small><br>
+            <small class="text-muted">Listed on: {{ book.created_at|date:"Y-m-d H:i" }}</small>
+          </p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+    <p class="text-muted text-center">No books listed yet.</p>
+  {% endif %}
+
+</div>
+
+</body>
+</html>
