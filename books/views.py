@@ -5,6 +5,7 @@ from .forms import RegisterForm , BookForm
 from django.contrib.auth.decorators import login_required
 from .models import Book
 from django.contrib import messages
+from django.core.paginator import Paginator
 
 def register_view(request):
     if request.method == 'POST':
@@ -34,7 +35,12 @@ def logout_view(request):
 
 def home_view(request):
     books = Book.objects.all().order_by('-created_at')
-    return render(request, 'homepage/homepage.html', {'books': books})
+    paginator = Paginator(books, 6)
+    
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    
+    return render(request, 'homepage/homepage.html', {'page_obj': page_obj})
     
 
 @login_required
@@ -57,7 +63,10 @@ def book_list(request):
 @login_required
 def my_books(request):
     books = Book.objects.filter(listed_by=request.user).order_by('-created_at')
-    return render(request, 'books/my_books.html', {'books': books})
+    paginator = Paginator(books, 6)  # 6 books per page
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'books/my_books.html', {'page_obj': page_obj})
 
 @login_required
 def edit_book(request, pk):
