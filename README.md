@@ -33,42 +33,47 @@ FunBookstore is a web-based book listing platform built using Django. It allows 
 
 ## 📁 Project Structure
 <pre>
-project-name/
+funbookstore/
 │
-├── books/
-│ ├── templates/
-│ │ ├── accounts/
-│ │ │ ├── login.html
-│ │ │ └── register.html
-│ │ ├── books/
-│ │ │ ├── add_books.html
-│ │ │ ├── book_list.html
-│ │ │ ├── edit_book.html
-│ │ │ └── my_books.html
-│ │ └── homepage/
-│ │ └── homepage.html
-│ ├── init.py
-│ ├── admin.py
-│ ├── apps.py
-│ ├── forms.py
-│ ├── models.py
-│ ├── tests.py
-│ ├── urls.py
-│ └── views.py
+├── .venv/                         # Virtual environment (not pushed to GitHub)
 │
-├── funbookstore/
-│ ├── init.py
-│ ├── asgi.py
-│ ├── settings.py
-│ ├── urls.py
-│ └── wsgi.py
+├── books/                         # Django app: books
+│   ├── __pycache__/              # Compiled bytecode
+│   ├── migrations/               # Django migrations
+│   ├── templates/                # All HTML templates grouped by feature
+│   │   ├── accounts/
+│   │   │   ├── login.html        # User login page
+│   │   │   └── register.html     # User registration page
+│   │   ├── books/
+│   │   │   ├── add_books.html    # Form to add a book
+│   │   │   ├── book_list.html    # Lists all books
+│   │   │   ├── edit_book.html    # Edit book form
+│   │   │   └── my_books.html     # List of books added by the logged-in user
+│   │   ├── homepage/
+│   │   │   └── homepage.html     # Main homepage content
+│   │   └── base.html             # Base template for layout (navbar, etc.)
+│   │
+│   ├── admin.py                  # Django admin configuration
+│   ├── apps.py                   # App configuration
+│   ├── forms.py                  # Django forms
+│   ├── models.py                 # Database models
+│   ├── tests.py                  # Unit tests
+│   ├── urls.py                   # App-level URL routes
+│   └── views.py                  # View logic
 │
-├── templates/
-│ └── base.html
+├── funbookstore/                 # Project settings folder
+│   ├── __pycache__/             
+│   ├── __init__.py              
+│   ├── asgi.py                   # ASGI config
+│   ├── settings.py               # Project settings
+│   ├── urls.py                   # Root URL configuration
+│   └── wsgi.py                   # WSGI config
 │
-├── media/
-├── db.sqlite3
-├── manage.py
-└── requirements.txt
+├── media/                        # Media files (user uploaded images)
+│
+├── db.sqlite3                    # SQLite database file
+├── manage.py                     # Django CLI tool
+└── requirements.txt              # List of Python dependencies
+
 
 </pre>
