@@ -33,7 +33,7 @@ FunBookstore is a web-based book listing platform built using Django. It allows 
 
 ## 📁 Project Structure
 <pre>
-funbookstore/
+Simple-Library-Management/
 │
 ├── .venv/                         # Virtual environment
 │
