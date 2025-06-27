@@ -35,7 +35,7 @@ FunBookstore is a web-based book listing platform built using Django. It allows 
 <pre>
 funbookstore/
 │
-├── .venv/                         # Virtual environment (not pushed to GitHub)
+├── .venv/                         # Virtual environment
 │
 ├── books/                         # Django app: books
 │   ├── __pycache__/              # Compiled bytecode
@@ -69,7 +69,7 @@ funbookstore/
 │   ├── urls.py                   # Root URL configuration
 │   └── wsgi.py                   # WSGI config
 │
-├── media/                        # Media files (user uploaded images)
+├── media/book_covers/images                       # Media files (user uploaded images)
 │
 ├── db.sqlite3                    # SQLite database file
 ├── manage.py                     # Django CLI tool
